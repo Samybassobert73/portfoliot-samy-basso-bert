@@ -8,7 +8,7 @@ type GLTFResult = {
 
 function Earth() {
 
-  const { nodes, materials}: GLTFResult  = useGLTF('/models/earth.gltf')
+  const { nodes, materials}: any  = useGLTF('/models/earth.gltf')
   return (
     <>
       <mesh geometry={nodes['URF-Height_Lampd_Ice_0'].geometry} material={materials.Lampd_Ice} />
