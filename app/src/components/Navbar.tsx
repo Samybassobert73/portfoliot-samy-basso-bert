@@ -2,7 +2,7 @@ import React from 'react'
 
 function Navbar() {
   return (
-    <div className='fixed flex p-8 shadow-md w-full bg-white z-20'>
+    <div className='fixed flex p-8 shadow-md w-full dark:bg-gray-700 bg-white dark:text-white z-20'>
         <a className="" href="">Home</a> 
         <div className="ml-auto">
             <a className="p-4" href="">blog</a>  

@@ -41,10 +41,10 @@ function Model() {
 
   return (
     <>
-      <group ref={avionRef } position={[1.5, 0.2, 0]} dispose={null}>
+      <group ref={avionRef } position={[2, 0.2, 0]} dispose={null}>
         <Avion/>
       </group>
-      <group ref={ earthRef }  position={[1.5, 0.2, 0]} dispose={null}>
+      <group ref={ earthRef }  position={[2, 0.2, 0]} dispose={null}>
         <Earth/>
       </group>
     </>
