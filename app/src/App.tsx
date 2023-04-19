@@ -12,6 +12,15 @@ import Navbar from './components/Navbar'
 import CircleImg from './assets/circle.png'
 function App() {
 
+  const [darkMode, setDarkMode] = useState(false)
+
+  useEffect(() => {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // dark mode
+      setDarkMode(true)
+    }
+  }, [])
+  
   const Box = () => {
     return (
       <mesh>
@@ -23,7 +32,7 @@ function App() {
   
   const Particles = () => {
     const imgTex = useLoader(THREE.TextureLoader,CircleImg);
-    const count = 500;
+    const count = 300;
   
     const [positions, sizes] = useMemo(() => {
       const positions = new Float32Array(count * 3);
@@ -60,17 +69,16 @@ function App() {
     },[])
 
   return (
-    <div className="App relative w-full h-full bg-white dark:bg-gray-700">
+    <div className="App relative w-full h-full bg-white dark:bg-gradient-to-r from-gray-700 to-blue-500">
         <Navbar/>
         <div className='relative w-full h-full'>
           <div className="w-full h-[1000px]">
-            <Canvas camera={{ position: [0, -0.2, 5], fov: 50 }}>
+            <Canvas camera={{ position: [0, -0.2, 5], fov: 50 }} className=''>
               <ambientLight intensity={1} />
               <Model  />
-              <Particles/>
+              { darkMode && <Particles/>}
               <Environment preset="city" />
               <ContactShadows frames={2} scale={8} position={[0, -1, 0]} far={1} blur={5} opacity={0.5} color="#204080" /> 
-              <Particles />
             </Canvas>
           </div>
           <div ref={overlayRef} className='flex w-full h-full items-center absolute top-0 left-0   opacity-0'>

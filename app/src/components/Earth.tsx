@@ -6,7 +6,7 @@ type GLTFResult = {
   materials?:any
 }
 
-function Earth() {
+export default function Earth() {
 
   const { nodes, materials}: any  = useGLTF('/models/earth.gltf')
   return (
@@ -17,4 +17,5 @@ function Earth() {
     </>
   )
 }
-export default Earth
+
+useGLTF.preload('/scene.gltf')
