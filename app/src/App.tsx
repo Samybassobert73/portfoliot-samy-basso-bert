@@ -1,4 +1,4 @@
-import { useState } from 'react'  
+import React , { useState } from 'react'  
 import './App.css'
 import * as THREE from 'three'
 import { useEffect } from 'react'
@@ -10,16 +10,10 @@ import gsap from "gsap";
 import Model from "./components/Model"
 import Navbar from './components/Navbar'
 import CircleImg from './assets/circle.png'
+import { ThemeContext } from './context/themeContext';
 function App() {
+  const { theme } = React.useContext(ThemeContext);
 
-  const [darkMode, setDarkMode] = useState(false)
-
-  useEffect(() => {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      // dark mode
-      setDarkMode(true)
-    }
-  }, [])
   
   const Box = () => {
     return (
@@ -69,14 +63,14 @@ function App() {
     },[])
 
   return (
-    <div className="App relative w-full h-full bg-white dark:bg-gradient-to-r from-gray-700 to-blue-500">
+    <div className="App relative w-full h-full  dark:bg-gradient-to-r dark:from-gray-700 dark:to-blue-500">
         <Navbar/>
         <div className='relative w-full h-full'>
           <div className="w-full h-[1000px]">
             <Canvas camera={{ position: [0, -0.2, 5], fov: 50 }} className=''>
               <ambientLight intensity={1} />
               <Model  />
-              { darkMode && <Particles/>}
+              { theme == 'dark' && <Particles/>}
               <Environment preset="city" />
               <ContactShadows frames={2} scale={8} position={[0, -1, 0]} far={1} blur={5} opacity={0.5} color="#204080" /> 
             </Canvas>
