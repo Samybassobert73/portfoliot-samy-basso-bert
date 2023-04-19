@@ -1,5 +1,14 @@
 import React from 'react';
-
+type props = {
+    initialTheme:undefined|string
+    children: React.ReactNode
+}
+type themeContext = {
+  
+    
+    theme:any,
+    setTheme:any
+  }
 const getInitialTheme = () => {
     if (typeof window !== 'undefined' && window.localStorage) {
         const storedPrefs = window.localStorage.getItem('color-theme');
@@ -16,12 +25,13 @@ const getInitialTheme = () => {
    return 'light' // light theme as the default;
 };
 
-export const ThemeContext = React.createContext();
+export const ThemeContext = React.createContext({} as themeContext);
 
-export const ThemeProvider = ({ initialTheme, children }) => {
+
+export const ThemeProvider = ({ initialTheme, children }:props) => {
     const [theme, setTheme] = React.useState(getInitialTheme);
 
-    const rawSetTheme = (rawTheme) => {
+    const rawSetTheme = (rawTheme:string) => {
         const root = window.document.documentElement;
         const isDark = rawTheme === 'dark';
 
