@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+    ui:
+      image: node:lts-alpine
+      restart: "no"
+      volumes:
+        - ./app:/app
+      working_dir: /app
+      command:
+        - sh
+        - -c
+        - |
+            yarn install
+            yarn run dev --host
+      ports:
+        - 5714:5714
+
