@@ -8,22 +8,12 @@ import { Environment, ContactShadows } from '@react-three/drei'
 import { OrbitControls } from "@react-three/drei";
 import gsap from "gsap";
 import Model from "./components/Model"
-import Navbar from './components/Navbar'
+import Navbar from './components/shared/Navbar'
 import CircleImg from './assets/circle.png'
 import { ThemeContext } from './context/themeContext';
 function App() {
   const { theme } = React.useContext(ThemeContext);
-
-  
-  const Box = () => {
-    return (
-      <mesh>
-        <meshStandardMaterial color="hotpink" />
-        <boxGeometry args={[1, 1, 1]} />
-      </mesh>
-    );
-  };
-  
+   
   const Particles = () => {
     const imgTex = useLoader(THREE.TextureLoader,CircleImg);
     const count = 300;
