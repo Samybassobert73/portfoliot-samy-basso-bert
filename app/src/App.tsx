@@ -71,7 +71,7 @@ function App() {
               <ambientLight intensity={1} />
               <Model  />
               { theme == 'dark' && <Particles/>}
-              <Environment preset="city" />
+              {/* <Environment preset="city" /> */}
               <ContactShadows frames={2} scale={8} position={[0, -1, 0]} far={1} blur={5} opacity={0.5} color="#204080" /> 
             </Canvas>
           </div>
@@ -82,16 +82,6 @@ function App() {
             </div>
           </div> 
         </div>
-        <div className='flex items-center relative h-[200px]  '>
-          <div>
-            div 1
-          </div>
-        </div> 
-        <div className='flex items-center relative h-[200px]  '>
-          <div>
-            div 2
-          </div>
-        </div> 
     </div>
   )
 }
