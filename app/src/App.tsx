@@ -65,16 +65,15 @@ function App() {
   return (
     <div className="App relative w-full h-full  dark:bg-gradient-to-r dark:from-gray-700 dark:to-blue-500">
         <Navbar/>
-        <div className='relative w-full h-full'>
-          <div className="w-full h-[1000px]">
+        <div className='flex items-center justify-center h-screen '>
+          
             <Canvas camera={{ position: [0, -0.2, 5], fov: 50 }} className=''>
               <ambientLight intensity={1} />
               <Model  />
               { theme == 'dark' && <Particles/>}
-              {/* <Environment preset="city" /> */}
               <ContactShadows frames={2} scale={8} position={[0, -1, 0]} far={1} blur={5} opacity={0.5} color="#204080" /> 
             </Canvas>
-          </div>
+        
           <div ref={overlayRef} className='flex w-full h-full items-center absolute top-0 left-0   opacity-0'>
             <div className="container mx-auto ">
               <h1 className='text-8xl font-bold font-bold dark:text-white'>Samy Basso-Bert</h1>
