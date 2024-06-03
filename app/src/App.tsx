@@ -63,25 +63,40 @@ function App() {
     },[])
 
   return (
-    <div className="App relative w-full h-full  dark:bg-gradient-to-r dark:from-gray-700 dark:to-blue-500">
-        <Navbar/>
-        <div className='flex items-center justify-center h-screen '>
-          
-            <Canvas camera={{ position: [0, -0.2, 5], fov: 50 }} className=''>
-              <ambientLight intensity={1} />
-              <Model  />
-              { theme == 'dark' && <Particles/>}
-              <ContactShadows frames={2} scale={8} position={[0, -1, 0]} far={1} blur={5} opacity={0.5} color="#204080" /> 
-            </Canvas>
-        
-          <div ref={overlayRef} className='flex w-full h-full items-center absolute top-0 left-0   opacity-0'>
-            <div className="container mx-auto ">
-              <h1 className='text-8xl font-bold font-bold dark:text-white'>Samy Basso-Bert</h1>
-              <h2 className='text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-blue-500'>Developpeur Web</h2>
-            </div>
-          </div> 
+    <div className="App relative w-full h-screen dark:bg-gradient-to-r dark:from-gray-700 dark:to-blue-500">
+    <Navbar />
+    <div className="flex items-center justify-center h-screen w-full">
+      <Canvas
+        camera={{ position: [0, -0.2, 5], fov: 50 }}
+        className="w-full h-full"
+      >
+        <ambientLight intensity={1} />
+        <Model />
+        {theme === 'dark' && <Particles />}
+        <ContactShadows
+          frames={2}
+          scale={8}
+          position={[0, -1, 0]}
+          far={1}
+          blur={5}
+          opacity={0.5}
+          color="#204080"
+        />
+      </Canvas>
+  
+      <div
+        ref={overlayRef}
+        className="flex w-full h-full items-center absolute top-0 left-0 opacity-0"
+      >
+        <div className="container mx-auto">
+          <h1 className="text-8xl font-bold dark:text-white">Samy Basso-Bert</h1>
+          <h2 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-blue-500">
+            Developpeur Web
+          </h2>
         </div>
+      </div>
     </div>
+  </div>
   )
 }
 
